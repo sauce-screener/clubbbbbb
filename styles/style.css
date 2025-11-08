@@ -20,6 +20,7 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 80px;
 }
 
 body {
@@ -29,6 +30,18 @@ body {
     line-height: 1.5;
     min-height: 100vh;
     position: relative;
+}
+
+/* Scroll animations */
+.scroll-fade {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.scroll-fade.visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* Background Videos */
@@ -127,31 +140,11 @@ footer {
     }
 }
 
-section {
-    animation: fadeInUp 0.8s ease-out;
-    animation-fill-mode: both;
-}
-
-section:nth-of-type(1) { animation-delay: 0s; }
-section:nth-of-type(2) { animation-delay: 0.1s; }
-section:nth-of-type(3) { animation-delay: 0.2s; }
-section:nth-of-type(4) { animation-delay: 0.3s; }
+/* Removed old section animations - now using Intersection Observer */
 
 .hero {
     animation: fadeIn 1s ease-out;
 }
-
-.art-card,
-.feature-card,
-.token-stat {
-    animation: fadeInUp 0.6s ease-out;
-    animation-fill-mode: both;
-}
-
-.art-card:nth-child(1) { animation-delay: 0.1s; }
-.art-card:nth-child(2) { animation-delay: 0.2s; }
-.art-card:nth-child(3) { animation-delay: 0.3s; }
-.art-card:nth-child(4) { animation-delay: 0.4s; }
 
 a {
     color: inherit;
@@ -955,6 +948,10 @@ input[type="range"]::-moz-range-thumb {
         letter-spacing: 0.15em;
     }
 
+    .hero {
+        min-height: 100vh;
+    }
+
     .lead {
         font-size: 0.95rem;
         margin-bottom: 2rem;
@@ -985,24 +982,28 @@ input[type="range"]::-moz-range-thumb {
     }
 
     .hero {
-        padding: 3rem 1rem;
-        min-height: auto;
+        padding: 2rem 1rem 3rem;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
     }
 
     .hero h1 {
-        font-size: 1.6rem;
+        font-size: 1.5rem;
         letter-spacing: 0.1em;
         margin-bottom: 1rem;
     }
 
     .lead {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
         line-height: 1.6;
+        margin-bottom: 2rem;
     }
 
     .cta-button.wallet-full {
-        font-size: 0.7rem;
-        padding: 0.7rem 0.5rem;
+        font-size: 0.6rem;
+        padding: 0.65rem 0.4rem;
+        letter-spacing: 0.05em;
     }
 
     .section-header h2 {
@@ -1014,6 +1015,10 @@ input[type="range"]::-moz-range-thumb {
     }
 
     .brand-name {
+        font-size: 1rem;
+    }
+
+    .about-content p {
         font-size: 1rem;
     }
 }

@@ -405,3 +405,47 @@ function setupMemeGenerator() {
     updateSize();
     centerOverlay();
 }
+
+// Scroll animations with Intersection Observer
+function initScrollAnimations() {
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    // Observe sections
+    document.querySelectorAll('section').forEach(section => {
+        section.classList.add('scroll-fade');
+        observer.observe(section);
+    });
+
+    // Observe feature cards
+    document.querySelectorAll('.feature-card').forEach((card, index) => {
+        card.classList.add('scroll-fade');
+        card.style.transitionDelay = `${index * 0.1}s`;
+        observer.observe(card);
+    });
+
+    // Observe tokenomics elements
+    document.querySelectorAll('.supply-chart, .breakdown-item').forEach((el, index) => {
+        el.classList.add('scroll-fade');
+        el.style.transitionDelay = `${index * 0.1}s`;
+        observer.observe(el);
+    });
+}
+
+// Initialize scroll animations when DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initScrollAnimations);
+} else {
+    initScrollAnimations();
+}
