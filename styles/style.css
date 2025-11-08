@@ -375,6 +375,7 @@ section {
 .section-header {
     max-width: var(--max-width);
     margin: 0 auto 2.5rem;
+    text-align: center;
 }
 
 .section-header h2 {
@@ -388,6 +389,7 @@ section {
 .section-subtitle {
     color: var(--text-muted);
     max-width: 580px;
+    margin: 0 auto;
 }
 
 /* About Section */
@@ -928,10 +930,48 @@ input[type="range"]::-moz-range-thumb {
     .cta-group {
         flex-direction: column;
         align-items: stretch;
+        gap: 0.75rem;
+    }
+
+    .cta-row {
+        flex-direction: column;
+        gap: 0.75rem;
     }
 
     .cta-button {
         width: 100%;
+        font-size: 0.85rem;
+        padding: 0.75rem 1rem;
+    }
+
+    .cta-button.wallet-full {
+        font-size: 0.75rem;
+        word-break: break-all;
+        padding: 0.75rem 0.75rem;
+    }
+
+    .hero h1 {
+        font-size: clamp(1.8rem, 8vw, 2.5rem);
+        letter-spacing: 0.15em;
+    }
+
+    .lead {
+        font-size: 0.95rem;
+        margin-bottom: 2rem;
+    }
+
+    .hero-content {
+        padding: 0 0.5rem;
+    }
+
+    .tokenomics-layout {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .button-icon {
+        width: 18px;
+        height: 18px;
     }
 }
 
@@ -942,5 +982,38 @@ input[type="range"]::-moz-range-thumb {
 
     .overlay {
         font-size: 48px;
+    }
+
+    .hero {
+        padding: 3rem 1rem;
+        min-height: auto;
+    }
+
+    .hero h1 {
+        font-size: 1.6rem;
+        letter-spacing: 0.1em;
+        margin-bottom: 1rem;
+    }
+
+    .lead {
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+
+    .cta-button.wallet-full {
+        font-size: 0.7rem;
+        padding: 0.7rem 0.5rem;
+    }
+
+    .section-header h2 {
+        font-size: 1.75rem;
+    }
+
+    .brand-mark {
+        font-size: 1.5rem;
+    }
+
+    .brand-name {
+        font-size: 1rem;
     }
 }
