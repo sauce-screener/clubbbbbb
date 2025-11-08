@@ -285,6 +285,12 @@ a {
     transition: transform var(--transition), border-color var(--transition), color var(--transition), background-color var(--transition);
 }
 
+.button-icon {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
 .cta-button.wallet {
     background: var(--primary-soft);
     border-color: rgba(212, 175, 55, 0.4);
@@ -382,6 +388,28 @@ section {
 .section-subtitle {
     color: var(--text-muted);
     max-width: 580px;
+}
+
+/* About Section */
+.about {
+    background: transparent;
+}
+
+.about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about-content p {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+}
+
+.about-content p:last-child {
+    margin-bottom: 0;
 }
 
 /* New Tokenomics Design */
